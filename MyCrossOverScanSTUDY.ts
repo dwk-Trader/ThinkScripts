@@ -18,14 +18,13 @@ StopSMA.SetDefaultColor(Createcolor(255,0,0));
 
 # Get Price direction.above
 def priceDirection = close - open;
-def closeTest = if close > close[1] then Yes else No;
 
 # Get average 30 day volume.
 def VolAvg = Average(volume, averageVolLength);
 def minVolCrossOver = VolAvg * (minimumPercentVolCrossover / 100);
 
 # Indicator 1:
-def directionUp = if priceDirection > 0 && closeTest then No else Yes;
+def directionUp = if priceDirection > 0 then No else Yes;
 
 # Indicator 2:
 def crossOver = if FastSMA crosses above StopSMA then Yes else No;
